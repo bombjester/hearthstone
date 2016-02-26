@@ -1,0 +1,98 @@
+<html ng-app="app">
+	<head>
+		<title>Arena Practice</title>
+		
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+  		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-route.min.js"></script>
+  		<script>
+  			
+
+  			var angular = angular.module('app', ['ngRoute']);
+
+  			angular.config(function($routeProvider){
+				$routeProvider
+
+				.when('/' , {
+					templateUrl: 'static/partials/first.html'
+				})
+				.when('/gomain',{
+					templateUrl: 'static/partials/main.html'
+				})
+				.when('/gomain1',{
+					templateUrl: 'static/partials/main1.html'
+				})
+				.otherwise({
+					redirectTo: '/'
+				});
+
+			});
+
+  			angular.controller("controller", function($scope, cardfactory, $window){
+  				  
+  					cardfactory.get3();
+           
+  					$scope.get3 = function(){
+  						cardfactory.get3();
+  					}
+            $scope.submit = function(){
+              $window.location.href = '#/gomain';
+            }
+
+  			})
+
+  			angular.controller("wait_controller", function($scope, cardfactory){
+          $scope.show = false;
+  				$scope.cards = [];
+  				$scope.deck = [];
+          $scope.values= false;
+  				console.log($scope.deck);
+  				$scope.add = function(data){
+  					console.log(data);
+  				
+  					cardfactory.addtodeck(data);
+  					cardfactory.get3();
+
+  				}
+          $scope.check = function(){
+              $scope.show= true;
+          }
+          $scope.value = function(){
+              $scope.values = true;
+          }
+  				cardfactory.getdeck(function(deck){$scope.deck = deck})
+  				cardfactory.get(function(data){$scope.cards = data});
+  			
+  			})
+  			angular.factory("cardfactory", function($http){
+  				var cards = [];
+  				var deck = [];
+  				functions={};
+  				functions.getdeck = function(callback){
+  					callback(deck);
+  				}
+  				functions.addtodeck = function(data){
+  					
+  					deck.push(data);
+  				}
+  				functions.get3 = function(){
+  					$http.get('/get3').success(function(result){
+  						console.log(result);
+  						cards = result;
+  					})
+  				}
+  				functions.get = function(callback){
+  					callback(cards);
+  				}
+  				
+  				return functions;
+
+  			})
+
+  		</script>
+
+	</head>
+	<body>
+		<div ng-view="">
+		</div>
+	</body>
+</html>

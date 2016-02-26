@@ -1,0 +1,46 @@
+.cards{
+    height: 400px;
+    width: 200px;
+    display: inline-block;
+    vertical-align: top;
+    
+}
+#background{
+	margin-left: 120px;
+	border: solid;
+	width: 60%;
+	height: 500px;
+	background-image: url("http://eskipaper.com/images/free-woods-wallpaper-2.jpg");
+	display: inline-block;
+}
+h1{
+	text-align: center;
+}
+#deck{
+	display: inline-block;
+	width: 20%;
+	height: 70%;
+	border: solid;
+	vertical-align: top;
+	margin-left: 30px;
+	background-image: url('http://www.executivecarsguernsey.com/wp-content/uploads/2015/01/LEATHER-BACKGROUND-2508-resized.jpg');
+}
+.color{
+	color: white;
+}
+.curve{
+	vertical-align: top;
+	border: solid;
+	width: 40%;
+	height: 20%;
+	display: inline-block;
+	margin-left: 150px;
+}
+
+table{
+	border-collapse: collapse;
+}
+table, td, th{
+	border: solid;
+	padding: 10px;
+}

@@ -1,0 +1,29 @@
+body{
+	background-image: url("https://i.ytimg.com/vi/QdXl3QtutQI/maxresdefault.jpg");
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+h1, h2{
+	text-align: center;
+	color: white;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+
+	margin-top:10%;
+}
+#name{
+	margin-left:45%;
+	margin-top: 30px;
+}
+.button {
+    display: block;
+    width: 65px;
+    height: 25px;
+    background: white;
+    padding: 0px;
+    text-align: center;
+    border-radius: 5px;
+    color: black;
+    margin-left: 5%;
+    margin-top: 1%;
+  
+}

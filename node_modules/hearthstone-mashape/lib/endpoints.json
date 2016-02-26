@@ -1,0 +1,16 @@
+{
+    "base_url": "https://omgvamp-hearthstone-v1.p.mashape.com/",
+    "methods": {
+        "cards" : {"resource": "cards" },
+        "backs" : {"resource": "cardbacks" },
+        "search" : {"resource": "cards/search/:name" },
+        "set" : {"resource": "cards/sets/:set" },
+        "hero" : {"resource": "cards/classes/:hero" },
+        "faction" : {"resource": "cards/factions/:faction" },
+        "quality" : {"resource": "cards/qualities/:quality" },
+        "race" : {"resource": "cards/races/:race" },
+        "type" : {"resource": "cards/types/:type" },
+        "info" : {"resource": "info" },
+        "card" : {"resource": "cards/:name" }
+    }
+}
