@@ -5,16 +5,17 @@
 
 	</head>
 	<body>
-		<div ng-controller="wait_controller">
+		<div ng-controller="controller">
 			<h1>Choose a card</h1>
 			<a class='button' style="display: block; vertical-align: top; width: 100px " ng-show='show' href='#/gomain1'>Continue</a>
 			<div id='background'>
 				
 				<div ng-repeat='x in cards' class='cards'> 
+					<p>TEST TEST ETEST</p>
 					<div class= 'tilt'>
 						<a ng-click="add(x); check(); value();"><img  height='400' width='200' src='{{x.img}}' alt="error"></a>
 					</div>
-					<p ng-show='values' class="values" >Value Score: {{x.value}}</p>
+					<p ng-show='values' class="values" >Value Score: {{x}}</p>
 				</div>
 
 			</div>

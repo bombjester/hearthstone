@@ -5,46 +5,51 @@
 
 	</head>
 	<body>
+		
+		
 		<div ng-controller="wait_controller">
-			<h1>Choose a card</h1>
-			<a class='button' style="display: block; vertical-align: top; width: 100px " ng-show='show' href='#/gomain'>Continue</a>
+			<h3> Choose a card
+				<a id="toggle" ng-click="sound()" class="btn-floating btn-large waves-effect waves-light blue">
+					<i class="material-icons">
+						<span ng-if="off">volume_off</span>
+						<span ng-if="on">volume_up</span>
+					</i>
+				</a>
+				<a href="/" class="waves-effect waves-light blue btn"><i class="material-icons">home</i></a>
+			</h3>
+			
+
+			<a id="next" ng-if="show" ng-click="continue()" class="waves-effect waves-light btn">Next Card</a>
+			<br>
 			<div id='background'>
 				<div ng-repeat='x in cards' class='cards'>
 					<div class="tilt">
-						<a ng-click="add(x); check(); value();" ><img  height='400' width='200' src='{{x.img}}' alt="error"></a>
+						<a ng-click="add(x);" ><img  height='400' width='200' src='{{x.img}}' alt="error"></a>
 					</div>
+
 					<p ng-show='values' class="values">Value Score: {{x.value}}</p>
+				</div>
+				<div id="loader" ng-show="loading"class=" center-align preloader-wrapper big active">
+					    <div class="spinner-layer spinner-blue-only">
+					      <div class="circle-clipper left">
+					        <div class="circle"></div>
+					      </div><div class="gap-patch">
+					        <div class="circle"></div>
+					      </div><div class="circle-clipper right">
+					        <div class="circle"></div>
+					      </div>
+					    </div>
 				</div>
 			</div>
 			<div id='deck'>
-				<p class='color' ng-repeat="y in deck">[{{y.cost}}] {{y.name}}</p>
+				<div ng-repeat="y in deck">
+					<p ng-mouseover="trigger(y.order)" ng-mouseleave="untrigger()" class='color'>[{{y.cost}}] {{y.name}}</p>
+					<img ng-show='popout{{y.order}}'ng-src="{{y.img}}" height='200' width='150'> 
+				</div>
 			</div>
-<!-- 
-			<div class="curve">
-				<table>
-					<tr>
-						<td> 0 </td>
-						<td> 1 </td>
-						<td> 2</td>
-						<td> 3</td>
-						<td> 4</td>
-						<td> 5</td>
-						<td> 6</td>
-						<td> 7+</td>
-					</tr>
-					<tr ng-repeat="y in deck" ng-if="y.cost==4">
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td>4</td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-				</table>
-			</div> -->
-			
+
+				
+			<iframe ng-if="music" id="main" src="http://www.youtube.com/embed/WXxy3Y8daks?enablejsapi=1&autoplay=1" frameborder="0" height="0" width="0"></iframe>
 		</div>
 
 	</body>

@@ -1,7 +1,13 @@
 <html ng-app="app">
 	<head>
-		<title>Arena Practice</title>
-		
+		<title>Arena Helper</title>
+    <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script   src="https://code.jquery.com/jquery-2.2.2.min.js"   integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI="   crossorigin="anonymous"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
   		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-route.min.js"></script>
   		<script>
@@ -9,7 +15,7 @@
 
   			var angular = angular.module('app', ['ngRoute']);
 
-  			angular.config(function($routeProvider){
+  			angular.config(function($routeProvider, $locationProvider){
 				$routeProvider
 
 				.when('/' , {
@@ -18,47 +24,268 @@
 				.when('/gomain',{
 					templateUrl: 'static/partials/main.html'
 				})
-				.when('/gomain1',{
+				.when('/gomain1/:class',{
 					templateUrl: 'static/partials/main1.html'
 				})
+        .when('/class',{
+          templateUrl: 'static/partials/class.html'
+        })
 				.otherwise({
 					redirectTo: '/'
 				});
 
 			});
 
-  			angular.controller("controller", function($scope, cardfactory, $window){
-  				  
-  					cardfactory.get3();
-           
-  					$scope.get3 = function(){
-  						cardfactory.get3();
-  					}
-            $scope.submit = function(){
-              $window.location.href = '#/gomain';
+  			angular.controller("controller", function($scope, cardfactory, $location, $routeParams){
+  				 
+  					$scope.cards = [];
+            $scope.warrior = function(){
+              cardfactory.warrior().success(function(result){
+                $scope.cards = result;
+                $location.path('/gomain1/Warrior');
+              
+              })       
+            }
+            $scope.druid = function(){
+              cardfactory.druid().success(function(result){
+                $scope.cards = result;
+
+                $location.path('/gomain1/Druid');
+              });
+
             }
 
+            $scope.warlock = function(){
+              cardfactory.warlock().success(function(result){
+                $scope.cards = result;
+                $location.path('/gomain1/Warlock');
+              })
+            }
+            $scope.shaman = function(){
+              cardfactory.shaman().success(function(result){
+                $scope.cards = result;
+
+                $location.path('/gomain1/Shaman');
+              });
+            }
+
+            $scope.mage = function(){
+              cardfactory.mage().success(function(result){
+                $scope.cards = result;
+
+                $location.path('/gomain1/Mage');
+              });
+            }
+            $scope.paladin = function(){
+              cardfactory.paladin().success(function(result){
+                $scope.cards = result;
+
+                $location.path('/gomain1/Paladin');
+              });
+            }
+            $scope.priest = function(){
+              cardfactory.priest().success(function(result){
+                $scope.priest = result;
+
+                $location.path('/gomain1/Priest');
+              });
+            }
+            $scope.rogue = function(){
+              cardfactory.rogue().success(function(result){
+                $scope.cards = result;
+
+                $location.path('/gomain1/Rogue');
+              });
+            }
+            $scope.hunter = function(){
+              cardfactory.hunter().success(function(result){
+                $scope.cards = result;
+
+                $location.path('/gomain1/Hunter');
+              });
+            }
   			})
 
-  			angular.controller("wait_controller", function($scope, cardfactory){
+  			angular.controller("wait_controller", function($scope, cardfactory,$routeParams){
           $scope.show = false;
   				$scope.cards = [];
   				$scope.deck = [];
           $scope.values= false;
-  				console.log($scope.deck);
-  				$scope.add = function(data){
-  					console.log(data);
-  				
-  					cardfactory.addtodeck(data);
-  					cardfactory.get3();
+          $scope.music = true;
+          $scope.on = true;
+          $scope.off = false;
+          $scope.enable = true;
+          $scope.loading = false;
+          $scope.counter = 1;
+          $scope.popout1 = false;
+          $scope.popout2 = false;
+          $scope.popout3 = false;
+          $scope.popout4 = false;
+          $scope.popout5 = false;
+          $scope.popout6 = false;
+          $scope.popout7 = false;
+          $scope.popout8 = false;
+          $scope.popout9 = false;
+          $scope.popout10 = false;
+          $scope.popout11 = false;
+          $scope.popout12 = false;
+          $scope.popout13 = false;
+          $scope.popout14 = false;
 
-  				}
-          $scope.check = function(){
+
+          $scope.trigger = function(order){
+
+            if (order == 1){
+                $scope.popout1 = true;
+            }
+            else if (order == 2){
+                $scope.popout2 = true;
+            }
+            else if (order == 3){
+                $scope.popout3 = true;
+            }
+            else if (order == 4){
+                $scope.popout4 = true;
+            }
+            else if (order == 5){
+                $scope.popout5 = true;
+            }
+            else if (order == 6){
+                $scope.popout6 = true;
+            }
+            else if (order == 7){
+                $scope.popout7 = true;
+            }
+            else if (order == 8){
+                $scope.popout8 = true;
+            }
+            else if (order == 9){
+                $scope.popout9 = true;
+            }
+            else if (order == 10){
+                $scope.popout10 = true;
+            }
+            else if (order == 11){
+                $scope.popout11 = true;
+            }
+            else if (order == 12){
+                $scope.popout12 = true;
+            }
+            else if (order == 13){
+                $scope.popout13 = true;
+            }
+            else if (order == 14){
+                $scope.popout14 = true;
+            }
+          }
+          $scope.untrigger = function(){
+            $scope.popout1 = false;
+            $scope.popout2 = false;
+            $scope.popout3 = false;
+            $scope.popout4 = false;
+            $scope.popout5 = false;
+            $scope.popout6 = false;
+            $scope.popout7 = false;
+            $scope.popout8 = false;
+            $scope.popout9 = false;
+            $scope.popout10 = false;
+            $scope.popout11 = false;
+            $scope.popout12 = false;
+            $scope.popout13 = false;
+            $scope.popout14 = false;
+          }   
+          $scope.sound = function(){
+            if($scope.music == true){ 
+               $scope.music = false;
+               $scope.on = false;
+               $scope.off = true;
+            }
+            else{
+              $scope.music = true;
+              $scope.off = false;
+              $scope.on = true;
+            }
+           
+          }
+
+          $scope.continue = function(){
+              $scope.enable = true;
+              $scope.loading = true;
+              $scope.cards = [];
+              $scope.show = false;
+              $scope.values= false;
+              $scope.counter +=1;
+              
+             
+              if( $routeParams.class == "Warrior"){
+                cardfactory.warrior().success(function(result){
+                  $scope.loading = false;
+                  $scope.cards = result;
+                })
+              }
+              else if ($routeParams.class == "Druid"){
+                cardfactory.druid().success(function(result){
+                  $scope.loading = false;
+                  $scope.cards = result;
+                })
+              }
+              else if ($routeParams.class == "Warlock"){
+                cardfactory.warlock().success(function(result){
+                  $scope.loading = false;
+                  $scope.cards = result;
+                })
+              }
+              else if ($routeParams.class == "Shaman"){
+                cardfactory.shaman().success(function(result){
+                  $scope.loading = false;
+                  $scope.cards = result;
+                })
+              }
+              else if ($routeParams.class == "Mage"){
+                cardfactory.mage().success(function(result){
+                  $scope.loading = false;
+                  $scope.cards = result;
+                })
+              }
+              else if ($routeParams.class == "Paladin"){
+                cardfactory.paladin().success(function(result){
+                  $scope.loading = false;
+                  $scope.cards = result;
+                })
+              }
+              else if ($routeParams.class == "Priest"){
+                cardfactory.priest().success(function(result){
+                  $scope.loading = false;
+                  $scope.cards = result;
+                })
+              }
+              else if ($routeParams.class == "Rogue"){ 
+                cardfactory.rogue().success(function(result){
+                  $scope.loading = false;
+                  $scope.cards = result;
+                })
+              }
+              else if ($routeParams.class == "Hunter"){   
+                cardfactory.hunter().success(function(result){
+                  $scope.loading = false;
+                  $scope.cards = result;
+                })
+              }
+              else{
+                console.log("error");
+              }
+          }
+
+  				$scope.add = function(data){
+            if ($scope.enable == true){
+              data.order = $scope.counter;
+    					cardfactory.addtodeck(data);
               $scope.show= true;
-          }
-          $scope.value = function(){
               $scope.values = true;
-          }
+              $scope.enable = false;
+            }
+  				}
+          
   				cardfactory.getdeck(function(deck){$scope.deck = deck})
   				cardfactory.get(function(data){$scope.cards = data});
   			
@@ -67,11 +294,57 @@
   				var cards = [];
   				var deck = [];
   				functions={};
+
+          functions.warrior = function(){
+            return $http.get('/get3/Warrior').success(function(result){
+              cards = result;
+            });
+          }
+          functions.druid = function(){
+            return $http.get('/get3/Druid').success(function(result){
+              cards = result;
+            })
+          }
+          functions.warlock = function(){
+            return $http.get('/get3/Warlock').success(function(result){
+              cards = result;
+            })
+          }
+          functions.shaman = function(){
+            return $http.get('/get3/Shaman').success(function(result){
+              cards = result;
+            })
+          }
+          functions.mage = function(){
+            return $http.get('/get3/Mage').success(function(result){
+              cards = result;
+            })
+          }
+          functions.paladin = function(){
+            return $http.get('/get3/Paladin').success(function(result){
+              cards = result;
+            })
+          }
+          functions.priest = function(){
+            return $http.get('/get3/Priest').success(function(result){
+              cards = result;
+            })
+          }
+          functions.rogue = function(){
+            return $http.get('/get3/Rogue').success(function(result){
+              cards = result;
+            })
+          }
+          functions.hunter = function(){
+            return $http.get('/get3/Hunter').success(function(result){
+              cards = result;
+            })
+          }
   				functions.getdeck = function(callback){
   					callback(deck);
   				}
   				functions.addtodeck = function(data){
-  					
+            console.log(data);
   					deck.push(data);
   				}
   				functions.get3 = function(){
@@ -92,6 +365,7 @@
 
 	</head>
 	<body>
+
 		<div ng-view="">
 		</div>
 	</body>
