@@ -5,5 +5,8 @@
     "body-parser": "^1.14.2",
     "express": "~4.10.0",
     "mongoose": "^4.4.2",
+  },
+  "engines":{
+  	"node": "5.5.0"
   }
 }
