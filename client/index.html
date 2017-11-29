@@ -111,7 +111,7 @@
   				$scope.cards = [];
   				$scope.deck = [];
           $scope.values= false;
-          $scope.music = true;
+          $scope.music = false;
           $scope.on = true;
           $scope.off = false;
           $scope.enable = true;
@@ -344,12 +344,12 @@
   					callback(deck);
   				}
   				functions.addtodeck = function(data){
-            console.log(data);
+            //console.log(data);
   					deck.push(data);
   				}
   				functions.get3 = function(){
   					$http.get('/get3').success(function(result){
-  						console.log(result);
+  						//console.log(result);
   						cards = result;
   					})
   				}

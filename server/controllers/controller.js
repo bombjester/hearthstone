@@ -9,7 +9,7 @@ module.exports = (function() {
 
 		get3: function(req,res){
 			var rarity = Math.random();
-				console.log(rarity);
+				//console.log(rarity);
 				if (rarity < .55){
 					rarity = 'Common';
 				}
@@ -140,7 +140,7 @@ module.exports = (function() {
 					}
 					else if( rarity == "Legendary"){
 						var array= [];
-						console.log("gets here");
+						//console.log("gets here");
 						var card1 = Math.floor(Math.random()*93);
 						var card2 = Math.floor(Math.random()*93);
 						var card3 = Math.floor(Math.random()*93);

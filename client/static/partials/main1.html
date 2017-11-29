@@ -6,7 +6,7 @@
 	</head>
 	<body>
 		
-		
+		<center>
 		<div ng-controller="wait_controller">
 			<h3> Choose a card
 				<a id="toggle" ng-click="sound()" class="btn-floating btn-large waves-effect waves-light blue">
@@ -17,7 +17,7 @@
 				</a>
 				<a href="/" class="waves-effect waves-light blue btn"><i class="material-icons">home</i></a>
 			</h3>
-			
+			<h5>Note: Sorry, but the database is not updated with newer cards so some cards and values will not show</h5>
 
 			<a id="next" ng-if="show" ng-click="continue()" class="waves-effect waves-light btn">Next Card</a>
 			<br>
@@ -51,6 +51,6 @@
 				
 			<iframe ng-if="music" id="main" src="http://www.youtube.com/embed/WXxy3Y8daks?enablejsapi=1&autoplay=1" frameborder="0" height="0" width="0"></iframe>
 		</div>
-
+	</center>
 	</body>
 </html>
