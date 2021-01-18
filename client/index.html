@@ -37,9 +37,10 @@
 			});
 
   			angular.controller("controller", function($scope, cardfactory, $location, $routeParams){
-  				 
+  				  
   					$scope.cards = [];
             $scope.warrior = function(){
+
               cardfactory.warrior().success(function(result){
                 $scope.cards = result;
                 $location.path('/gomain1/Warrior');

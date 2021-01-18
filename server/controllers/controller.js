@@ -8,6 +8,7 @@ module.exports = (function() {
 	return{
 
 		get3: function(req,res){
+
 			var rarity = Math.random();
 				//console.log(rarity);
 				if (rarity < .55){
@@ -47,7 +48,7 @@ module.exports = (function() {
 							
 							Hearthstone.quality(quality, function(err, data){
 								var checker = function(card){
-
+									
 									if (data[card].playerClass == undefined){	
 										// console.log("Non Class #: " + card );
 										return card;	

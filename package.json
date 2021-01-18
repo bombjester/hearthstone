@@ -1,12 +1,15 @@
 {
-  "name": "Sample_Express",
-  "description": "Sample Express Application to test out using Package.json to install dependencies",
+  "name": "Hearthstone",
+  "description": "hearthstone",
   "dependencies": {
-    "body-parser": "^1.14.2",
-    "express": "~4.10.0",
-    "mongoose": "^4.4.2"
+    "body-parser": "latest",
+    "express": "latest",
+    "hearthstone-mashape": "0.0.6",
+    "mongoose": "^5.11.12",
+    "node": "^15.4.0",
+    "package.json": "^2.0.1"
   },
-  "engines":{
-  	"node": "5.5.0"
+  "engines": {
+    "node": "latest"
   }
 }
